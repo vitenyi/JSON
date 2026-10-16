@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "=if(Number(@currentField) == 0, 'none', 'flex')",
+    "flex-direction": "column",
+    "align-items": "flex-start",
+    "justify-content": "flex-start",
+    "text-align": "left",
+    "width": "100%",
+    "line-height": "1.3"
+  },
+  "children": [
+    {
+      "elmType": "div",
+      "txtContent": "=if(Number(@currentField) == 0, '', toString(getYear(@currentField)))",
+      "style": {
+        "font-weight": "600",
+        "text-align": "left"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "=if(Number(@currentField) == 0, '', if(getMonth(@currentField) == 0, 'January', if(getMonth(@currentField) == 1, 'February', if(getMonth(@currentField) == 2, 'March', if(getMonth(@currentField) == 3, 'April', if(getMonth(@currentField) == 4, 'May', if(getMonth(@currentField) == 5, 'June', if(getMonth(@currentField) == 6, 'July', if(getMonth(@currentField) == 7, 'August', if(getMonth(@currentField) == 8, 'September', if(getMonth(@currentField) == 9, 'October', if(getMonth(@currentField) == 10, 'November', 'December'))))))))))) + ' ' + toString(getDate(@currentField)))",
+      "style": {
+        "text-align": "left"
+      }
+    }
+  ]
+}
